@@ -7,9 +7,17 @@
   {% for message in get_flashed_messages() %}
     {{ message }}
   {% endfor %}
-  
+
   <h1>{{ first }} {{ last }}</h1>
 
   <p>GitHub Account: {{ github }}</p>
+
+  <h3>Projects and Grades:</h3>
+  <ul>
+  {% for project, grade in student_grades %}
+    <li>{{ project }}: {{ grade }}</li>
+  {% endfor %}
+</ul>
+
 </body>
 </html>
