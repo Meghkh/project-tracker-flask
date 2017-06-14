@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Project Info</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -10,6 +11,28 @@
   <p>{{ description }}</p>
 
   <p>Max Grade: {{ max_grade }}</p>
+
+  <table style="border:solid;" padding="padding:1em;">
+    <thead>
+      <tr>
+        <th>Project Title</th>
+        <th>Description</th>
+        <th>Student and Grade</th>
+        <th>Max Possible Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ title }}</td>
+        <td>{{ description }}</td>
+        <td>{% for student, grade in student_github %}
+          <li>{{ student }}: {{ grade }}
+          {% endfor %}</li>
+        </td>
+        <td>{{ max_grade }}</td>
+      </tr>
+    </tbody>
+  </table>
 
 </body>
 </html>

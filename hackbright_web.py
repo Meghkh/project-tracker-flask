@@ -51,24 +51,23 @@ def confirm_student_added():
     flash(success)
 
     return redirect("/student?github=" + github)
-                    # first_name=first_name,
-                    # last_name=last_name,
-                    # github=github,
-                    # success=success)
 
 
-@app.route("/project")
-def display_project_info():
+@app.route("/project/<project>")
+def display_project_info(project):
     """Display information about a project."""
 
-    project_title = request.args.get('title')
+    title, description, max_grade = hackbright.get_project_by_title(project)
 
-    title, description, max_grade = hackbright.get_project_by_title(project_title)
+    student_github = hackbright.get_grades_by_title(project)
+
+    print "github:", student_github
 
     return render_template('project_info.html',
                            title=title,
                            description=description,
-                           max_grade=max_grade)
+                           max_grade=max_grade,
+                           student_github=student_github)
 
 
 if __name__ == "__main__":
