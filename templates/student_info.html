@@ -15,9 +15,10 @@
   <h3>Projects and Grades:</h3>
   <ul>
   {% for project, grade in student_grades %}
-    <li>{{ project }}: {{ grade }}</li>
+    <li><a href="/project?title={{ project }}">{{ project }}</a>: {{ grade }}</li>
   {% endfor %}
 </ul>
+
 
 </body>
 </html>
