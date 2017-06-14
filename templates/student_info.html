@@ -4,6 +4,10 @@
     <title>Student Info</title>
 </head>
 <body>
+  {% for message in get_flashed_messages() %}
+    {{ message }}
+  {% endfor %}
+  
   <h1>{{ first }} {{ last }}</h1>
 
   <p>GitHub Account: {{ github }}</p>
